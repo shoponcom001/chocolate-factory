@@ -18,7 +18,8 @@
 ミシンなどの大型の機械は使わず、すぐに揃えれる工具で始めれる。
 
 ## 設計書
-後で提出します
+要件定義書
+https://docs.google.com/document/d/1fshGKnci0AFlrs6vNlFB3fLnR8yALE3P915X7CM8MR8/edit
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1bvFxqi6wtNIfaW05s19LHCSurA8oqvSqr_AhEjnRMpc/edit#gid=0
