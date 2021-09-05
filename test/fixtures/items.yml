@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order: one
+  design: one
+  buy_name: MyString
+  material: false
+  size: 1
+  buy_price: 1
+  due_date: 2021-09-05 12:52:23
+  production_status: 1
+
+two:
+  order: two
+  design: two
+  buy_name: MyString
+  material: false
+  size: 1
+  buy_price: 1
+  due_date: 2021-09-05 12:52:23
+  production_status: 1
