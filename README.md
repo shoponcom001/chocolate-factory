@@ -19,7 +19,7 @@
 
 ## 設計書
 - 要件定義書
-- https://docs.google.com/document/d/1fshGKnci0AFlrs6vNlFB3fLnR8yALE3P915X7CM8MR8/edit
+https://docs.google.com/document/d/1fshGKnci0AFlrs6vNlFB3fLnR8yALE3P915X7CM8MR8/edit
 - UI Flows(ユーザー側)
 - https://drive.google.com/file/d/1uBhhtEWzptjSo44NfkgLvhsKe-utwdUQ/view?usp=sharing
 - UI Flows(管理者側)
