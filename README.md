@@ -18,18 +18,18 @@
 ミシンなどの大型の機械は使わず、すぐに揃えれる工具で始めれる。
 
 ## 設計書
-要件定義書
-https://docs.google.com/document/d/1fshGKnci0AFlrs6vNlFB3fLnR8yALE3P915X7CM8MR8/edit
-UI Flows(ユーザー側)
-https://drive.google.com/file/d/1uBhhtEWzptjSo44NfkgLvhsKe-utwdUQ/view?usp=sharing
-UI Flows(管理者側)
-https://drive.google.com/file/d/19FFzhNH5E_CO-hUUFLBKxRlzGXMkA_UD/view?usp=sharing
-ER図
-https://drive.google.com/file/d/1Wv4SIhqaJd62U5py93g_p1fSAy2H_0__/view?usp=sharing
-テーブル提議書
-https://docs.google.com/spreadsheets/d/1R5mV8_y6md8ntvJZw9DocCg50LRZFsZv34MH4Oi0GrA/edit?usp=sharing
-アプリケーション詳細設計
-https://docs.google.com/spreadsheets/d/1rcrIfVk532tckgoiGFCwzeb3XunU2UxhekJ_bpeYaOc/edit?usp=sharing
+- 要件定義書
+- https://docs.google.com/document/d/1fshGKnci0AFlrs6vNlFB3fLnR8yALE3P915X7CM8MR8/edit
+- UI Flows(ユーザー側)
+- https://drive.google.com/file/d/1uBhhtEWzptjSo44NfkgLvhsKe-utwdUQ/view?usp=sharing
+- UI Flows(管理者側)
+- https://drive.google.com/file/d/19FFzhNH5E_CO-hUUFLBKxRlzGXMkA_UD/view?usp=sharing
+- ER図
+- https://drive.google.com/file/d/1Wv4SIhqaJd62U5py93g_p1fSAy2H_0__/view?usp=sharing
+- テーブル提議書
+- https://docs.google.com/spreadsheets/d/1R5mV8_y6md8ntvJZw9DocCg50LRZFsZv34MH4Oi0GrA/edit?usp=sharing
+- アプリケーション詳細設計
+- https://docs.google.com/spreadsheets/d/1rcrIfVk532tckgoiGFCwzeb3XunU2UxhekJ_bpeYaOc/edit?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1bvFxqi6wtNIfaW05s19LHCSurA8oqvSqr_AhEjnRMpc/edit#gid=0
