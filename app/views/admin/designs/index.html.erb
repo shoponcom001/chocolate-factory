@@ -11,9 +11,8 @@
         <thead>
           <tr>
             <th>デザインID</th>
-            <th>デザイン画像</th>
             <th>デザイン名</th>
-            <th>価格</th>
+            <th>ベース価格</th>
             <th>注文受付</th>
           </tr>
         </thead>
@@ -21,10 +20,15 @@
           <% @designs.each do |design| %>
           <tr>
             <td><%= design.id %></td>
-            <td><%= design.image_id %></td>
-            <td><%= design.name %></td>
+            <td><%= link_to design.name, admin_design_path(design) %></td>
             <td><%= design.price %></td>
-            <td><%= design.is_ordered %></td>
+            <div>
+              <% if design.is_ordered_before_type_cast == 0 %>
+                <td class="text-success"><%= design.is_ordered_i18n %></td>
+              <% else %>
+                <td class="text-secondary"><%= design.is_ordered_i18n %></td>
+              <% end %>
+            </div>
           </tr>
           <% end %>
         </tbody>
