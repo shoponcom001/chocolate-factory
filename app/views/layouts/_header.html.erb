@@ -1,0 +1,70 @@
+<header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <div row>
+        <div class="col">
+      <%= link_to image_tag("chocolate_factory_ロゴ.jpg", width: 100), root_path, class: "navbar-brand p-3" %>
+      <% if user_signed_in? %>
+          ようこそ<%= link_to "#{current_user.name}", users_my_page_path %>さん
+      <% end %>
+        </div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'デザイン', designs_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to '注文履歴', orders_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nev-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
+        <% elsif admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "会員一覧", admin_users_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nev-item">
+          <%= link_to "注文履歴一覧", admin_root_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "デザイン一覧", admin_designs_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "革のランク一覧", admin_ranks_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nev-item">
+          <%= link_to "革のカラー一覧", admin_colors_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "木型一覧", admin_lasts_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+        </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "About", about_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nev-item">
+          <%= link_to "デザイン", designs_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+        </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
