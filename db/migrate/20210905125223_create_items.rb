@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :size, null: false
       t.integer :buy_price, null: false
       t.datetime :due_date, null: false
-      t.integer :production_status, null: false
+      t.integer :production_status, null: false, default: 0
 
       t.timestamps
     end

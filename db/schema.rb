@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
     t.string "name", null: false
     t.integer "price", null: false
     t.integer "image_id", null: false
-    t.boolean "is_ordered"
+    t.boolean "is_ordered", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
     t.integer "size", null: false
     t.integer "buy_price", null: false
     t.datetime "due_date", null: false
-    t.integer "production_status", null: false
+    t.integer "production_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["design_id"], name: "index_items_on_design_id"
@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
     t.string "address", null: false
     t.string "name", null: false
     t.string "phone_number", null: false
-    t.integer "payment_method", null: false
-    t.integer "order_status", null: false
+    t.integer "payment_method", default: 0, null: false
+    t.integer "order_status", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
