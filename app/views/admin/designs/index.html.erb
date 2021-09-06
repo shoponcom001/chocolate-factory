@@ -1,2 +1,34 @@
-<h1>Admin::Designs#index</h1>
-<p>Find me in app/views/admin/designs/index.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>デザイン一覧</h2>
+      <div class="text-right mb-3">
+        <%= link_to new_admin_design_path, class: "btn btn-light shadow-sm rounded-circle p-0 text-center", style: "width:2rem;height:2rem;" do %>
+        <p>+</p>
+        <% end %>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>デザインID</th>
+            <th>デザイン画像</th>
+            <th>デザイン名</th>
+            <th>価格</th>
+            <th>注文受付</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @designs.each do |design| %>
+          <tr>
+            <td><%= design.id %></td>
+            <td><%= design.image_id %></td>
+            <td><%= design.name %></td>
+            <td><%= design.price %></td>
+            <td><%= design.is_ordered %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
