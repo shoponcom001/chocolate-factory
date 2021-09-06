@@ -4,7 +4,7 @@ class CreateDesigns < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.integer :image_id, null: false
-      t.boolean :is_ordered, null: false, default: false
+      t.boolean :is_ordered, null: false
 
       t.timestamps
     end
