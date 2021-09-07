@@ -1,5 +1,7 @@
 class Admin::LastsController < ApplicationController
+  
   def index
+
   end
 
   def new
