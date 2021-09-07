@@ -1,2 +1,19 @@
-<h1>Admin::Lasts#new</h1>
-<p>Find me in app/views/admin/lasts/new.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>木型新規登録</h2>
+      <%= form_with model: [:admin, @last], local:true do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <td>木型名</td>
+          <td><%= f.text_field :name, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

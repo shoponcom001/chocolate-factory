@@ -20,7 +20,7 @@
             <% @ranks.each do |rank| %>
             <tr>
               <td><%= rank.id %></td>
-              <td><%= link_to rank.name, admin_rank_path(rank)%></td>
+              <td><%= rank.name %></td>
               <td><%= rank.price %>円</td>
               <td><%= link_to "編集する", edit_admin_rank_path(rank), class: "btn btn-success" %></td>
               <td><%= link_to "削除する", admin_rank_path(rank), method: :delete, class: "btn btn-danger" %></td>

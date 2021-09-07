@@ -7,7 +7,9 @@
           <tbody>
             <tr>
               <td>デザイン画像</td>
-              <td><%= f.attachment_field :image, class: "form-control-file" %></td>
+              <td>
+                <%= f.attachment_field :image, class: "form-control-file" %>
+              </td>
             </tr>
             <tr>
               <td>デザイン名</td>
@@ -28,7 +30,9 @@
             </tr>
             <tr>
               <td> </td>
-              <td><%= f.submit "新規登録", class: "btn btn-success" %></td>
+              <td>
+              <%= f.submit "新規登録", class: "btn btn-success"  %>
+              </td>
             </tr>
           </tbody>
         </table>
