@@ -1,2 +1,31 @@
-<h1>Admin::Colors#index</h1>
-<p>Find me in app/views/admin/colors/index.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>革の一覧</h2>
+        <div class="text-right mb-3">
+        <%= link_to new_admin_color_path, class: "btn btn-light shadow-sm rounded-circle p-0 text-center", style: "width:2rem;height:2rem;" do %>
+        <p>+</p>
+        <% end %>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>カラーID</th>
+              <th>カラー名</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @colors.each do |color| %>
+            <tr>
+              <td><%= color.id %></td>
+              <td><%= link_to color.name, admin_color_path(color)%></td>
+              <td><%= link_to "編集する", edit_admin_color_path(color), class: "btn btn-success" %></td>
+              <td><%= link_to "削除する", admin_color_path(color), method: :delete, class: "btn btn-danger" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

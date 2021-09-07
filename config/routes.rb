@@ -35,9 +35,9 @@ namespace :admin do
   end
   
   resources :designs, except: [:destroy]
-  resources :ranks
-  resources :colors
-  resources :lasts
+  resources :ranks, except: [:show]
+  resources :colors, except: [:show]
+  resources :lasts, except: [:show]
   
   resources :users, only: [:index, :show, :edit, :update]
   
