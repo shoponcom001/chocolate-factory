@@ -1,2 +1,21 @@
-<h1>Admin::Colors#edit</h1>
-<p>Find me in app/views/admin/colors/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>革のカラー編集</h2>
+      <%= form_with model: [:admin, @color], local:true do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <td>カラー名</td>
+            <td><%= f.text_field :name, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td><%= f.submit "編集する", class: "btn btn-success" %></td>
+          </tr>
+        </tbody>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
