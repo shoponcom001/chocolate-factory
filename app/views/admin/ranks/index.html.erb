@@ -1,2 +1,33 @@
-<h1>Admin::Ranks#index</h1>
-<p>Find me in app/views/admin/ranks/index.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>革のランク一覧</h2>
+        <div class="text-right mb-3">
+        <%= link_to new_admin_rank_path, class: "btn btn-light shadow-sm rounded-circle p-0 text-center", style: "width:2rem;height:2rem;" do %>
+        <p>+</p>
+        <% end %>
+        </div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ランクID</th>
+              <th>ランク名</th>
+              <th>価格</th>
+              <th colspan="2"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @ranks.each do |rank| %>
+            <tr>
+              <td><%= rank.id %></td>
+              <td><%= link_to rank.name, admin_rank_path(rank)%></td>
+              <td><%= rank.price %>円</td>
+              <td><%= link_to "編集する", edit_admin_rank_path(rank), class: "btn btn-success" %></td>
+              <td><%= link_to "削除する", admin_rank_path(rank), method: :delete, class: "btn btn-danger" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>

@@ -95,3 +95,4 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
   end
 
 end
+rai
