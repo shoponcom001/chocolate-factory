@@ -13,10 +13,9 @@ class Admin::DesignsController < ApplicationController
     if @design.save
       redirect_to admin_designs_path
     else
-      render :new
+      redirect_to new_admin_design_path
     end
   end
-
 
   def show
     @design = Design.find(params[:id])
@@ -31,7 +30,7 @@ class Admin::DesignsController < ApplicationController
     if @design.update(design_params)
       redirect_to admin_design_path(@design)
     else
-      render :edit
+      redirect_to 
     end
   end
 

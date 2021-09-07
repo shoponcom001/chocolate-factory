@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2021_09_05_125455) do
   create_table "designs", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.integer "image_id", null: false
+    t.string "image_id", null: false
     t.boolean "is_ordered", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
