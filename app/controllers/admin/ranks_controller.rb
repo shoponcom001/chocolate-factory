@@ -12,8 +12,10 @@ class Admin::RanksController < ApplicationController
     @rank = Rank.new(rank_params)
     if @rank.save
       redirect_to admin_ranks_path
+      flash[:notice] = "新規登録しました。"
     else
       redirect_to request.referer
+      flash[:error] = "必要項目を入力してください"
     end
   end
 
@@ -25,8 +27,10 @@ class Admin::RanksController < ApplicationController
     rank = Rank.find(params[:id])
     if rank.update(rank_params)
       redirect_to admin_ranks_path
+      flash[:notice] = "変更しました。"
     else
       redirect_to request.referer
+      flash[:error] = "必要項目を入力してください"
     end
   end
 
@@ -34,6 +38,7 @@ class Admin::RanksController < ApplicationController
     rank = Rank.find(params[:id])
     rank.destroy
     redirect_to admin_ranks_path
+    flash[:notice] = "削除しました。"
   end
 
   def rank_params
