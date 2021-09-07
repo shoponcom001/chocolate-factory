@@ -5,7 +5,7 @@ class Design < ApplicationRecord
   validates :image_id, presence: true
   validates :name, presence: true
   validates :price, presence: true
-  validates :is_orderd, presence: true
+  validates :is_ordered, presence: true
 
   enum is_ordered: { on_sale: false, stop_sale: true}
 
