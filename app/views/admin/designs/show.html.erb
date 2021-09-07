@@ -1,2 +1,32 @@
-<h1>Admin::Designs#show</h1>
-<p>Find me in app/views/admin/designs/show.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>デザイン詳細</h2>
+      <%= attachment_image_tag @design, :image, format: 'jpeg', size: "100x100" %>
+      <table class="table">
+        <tr>
+          <th>デザイン名</th>
+          <th><%= @design.name %></th>
+        </tr>
+        <tr>
+          <th>ベース価格</th>
+          <th><%= @design.price %>円</th>
+        </tr>
+        <tr>
+          <th>注文受付</th>
+          <div>
+            <% if @design.is_ordered_before_type_cast == 0 %>
+              <th class="text-success"><%= @design.is_ordered_i18n %></th>
+            <% else %>
+              <th class="text-secondary"><%= @design.is_ordered_i18n %></th>
+            <% end %>
+          </div>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= link_to "編集する", edit_admin_design_path(@design), class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

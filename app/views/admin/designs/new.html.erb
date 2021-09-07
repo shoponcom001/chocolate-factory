@@ -1,2 +1,42 @@
-<h1>Admin::Designs#new</h1>
-<p>Find me in app/views/admin/designs/new.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>デザイン新規登録</h2>
+      <%= form_with model: [:admin, @design], local:true do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>デザイン画像</td>
+              <td>
+                <%= f.attachment_field :image, class: "form-control-file" %>
+              </td>
+            </tr>
+            <tr>
+              <td>デザイン名</td>
+              <td><%= f.text_field :name, class: "form-control" %></td>
+            </tr>
+            <tr>
+              <td>ベース価格</td>
+              <td class="text-nowrap"><%= f.text_field :price, class: "form-control mr-1", style: "display: inline" %>円</td>
+            </tr>
+            <tr>
+              <td>注文受付</td>
+              <td>
+                <%= f.radio_button :is_ordered, :on_sale %>
+                <%= f.label :受付中, class: "job_type_label" %>
+                <%= f.radio_button :is_ordered, :stop_sale %>
+                <%= f.label :受付停止, class: "job_type_label"%>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+              <%= f.submit "新規登録", class: "btn btn-success"  %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

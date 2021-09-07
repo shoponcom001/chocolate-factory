@@ -1,0 +1,6 @@
+ja:
+  enums:
+    design:
+      is_ordered:
+        on_sale: "受付中"
+        stop_sale: "受付停止"

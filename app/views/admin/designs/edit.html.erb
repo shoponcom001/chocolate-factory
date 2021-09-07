@@ -1,2 +1,43 @@
-<h1>Admin::Designs#edit</h1>
-<p>Find me in app/views/admin/designs/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>デザイン編集</h2>
+      <%= form_with model: [:admin, @design], local:true do |f| %>
+        <table class="table table-borderless">
+          <tbody>
+            <tr>
+              <td>デザイン画像</td>
+              <td>
+                <%= attachment_image_tag @design, :image, format: 'jpeg', size: "100x100" %>
+                <%= f.attachment_field :image, class: "form-control-file" %>
+              </td>
+            </tr>
+            <tr>
+              <td>デザイン名</td>
+              <td><%= @design.name %></td>
+            </tr>
+            <tr>
+              <td>ベース価格</td>
+              <td class="text-nowrap"><%= f.text_field :price, class: "form-control mr-1", style: "display: inline" %>円</td>
+            </tr>
+            <tr>
+              <td>注文受付</td>
+              <td>
+                <%= f.radio_button :is_ordered, :on_sale %>
+                <%= f.label :受付中, class: "job_type_label" %>
+                <%= f.radio_button :is_ordered, :stop_sale %>
+                <%= f.label :受付停止, class: "job_type_label"%>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>
+              <%= f.submit "変更する", class: "btn btn-success"  %>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
