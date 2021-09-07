@@ -1,21 +1,46 @@
 class Admin::LastsController < ApplicationController
-  
+
   def index
     @lasts = Last.all
   end
 
   def new
+    @last = Last.new
   end
 
   def create
+    @last = Last.new(last_params)
+    if @last.save
+      redirect_to admin_lasts_path
+    else
+      redirect_to request.referer
+    end
+
   end
 
   def edit
+    @last = Last.find(params[:id])
   end
 
   def update
+    last = Last.find(params[:id])
+    if last.update(last_params)
+      redirect_to admin_lasts_path
+    else
+      redirect_to request.referer
+    end
   end
 
   def destroy
+    last = Last.find(params[:id])
+    last.destroy
+    redirect_to admin_lasts_path
   end
+
+  private
+
+  def last_params
+    params.require(:last).permit(:name)
+  end
+
 end
