@@ -1,16 +1,13 @@
 class Admin::LastsController < ApplicationController
   
   def index
-
+    @lasts = Last.all
   end
 
   def new
   end
 
   def create
-  end
-
-  def show
   end
 
   def edit
