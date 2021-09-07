@@ -1,2 +1,19 @@
-<h1>Admin::Lasts#edit</h1>
-<p>Find me in app/views/admin/lasts/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>木型編集</h2>
+      <%= form_with model: [:admin, @last], local:true do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th>木型名</th>
+          <th><%= f.text_field :name, class: "form-control" %></th>
+        </tr>
+        <tr>
+          <th> </th>
+          <th><%= f.submit "編集する", class: "btn btn-success" %></th>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
