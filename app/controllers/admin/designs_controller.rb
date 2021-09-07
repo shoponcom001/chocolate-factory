@@ -11,7 +11,7 @@ class Admin::DesignsController < ApplicationController
   def create
     @design = Design.new(design_params)
     if @design.save
-      redirect_to admin_designs_path
+      redirect_to admin_design_path(@design)
     else
       redirect_to request.referer
     end
@@ -26,9 +26,9 @@ class Admin::DesignsController < ApplicationController
   end
 
   def update
-    @design = Design.find(params[:id])
-    if @design.update(design_params)
-      redirect_to admin_design_path(@design)
+    design = Design.find(params[:id])
+    if design.update(design_params)
+      redirect_to admin_design_path(design)
     else
       redirect_to request.referer
     end
