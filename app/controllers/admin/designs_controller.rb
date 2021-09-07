@@ -13,7 +13,7 @@ class Admin::DesignsController < ApplicationController
     if @design.save
       redirect_to admin_designs_path
     else
-      redirect_to new_admin_design_path
+      redirect_to request.referer
     end
   end
 
@@ -30,7 +30,7 @@ class Admin::DesignsController < ApplicationController
     if @design.update(design_params)
       redirect_to admin_design_path(@design)
     else
-      redirect_to 
+      redirect_to request.referer
     end
   end
 
