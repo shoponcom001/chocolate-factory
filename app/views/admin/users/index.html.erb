@@ -1,2 +1,33 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2>会員一覧</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>会員ID</th>
+            <th>会員名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= link_to user.name, admin_user_path(user) %></td>
+            <td><%= user.email %></td>
+            <div>
+              <% if user.is_deleted_before_type_cast == 0 %>
+                <td class="text-success"><%= user.is_deleted_i18n %></td>
+              <% else %>
+                <td class="text-secondary"><%= user.is_deleted_i18n %></td>
+              <% end %>
+            </div>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

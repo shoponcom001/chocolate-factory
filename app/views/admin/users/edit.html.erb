@@ -1,2 +1,32 @@
-<h1>Admin::Users#edit</h1>
-<p>Find me in app/views/admin/users/edit.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2><%= @user.name %>さんの会員編集</h2>
+      <%= form_with model: [:admin, @user], local:true do |f| %>
+      <table class="table borderless">
+        <tr>
+          <th>会員名</th>
+          <th><%= f.text_field :name, class: "form-control" %></th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= f.text_field :email, class: "form-control" %></th>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <th>
+            <%= f.radio_button :is_deleted, :consent %>
+            <%= f.label :有効, class: "job_type_label" %>
+            <%= f.radio_button :is_deleted, :nonconsent %>
+            <%= f.label :退会, class: "job_type_label" %>
+          </th>
+        </tr>
+        <tr>
+          <th> </th>
+          <th><%= f.submit "変更する", class: "btn btn-success" %></th>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

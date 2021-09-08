@@ -6,34 +6,34 @@
         <table class="table table-borderless">
           <tbody>
             <tr>
-              <td>デザイン画像</td>
-              <td>
+              <th>デザイン画像</th>
+              <th>
                 <%= attachment_image_tag @design, :image, format: 'jpeg', size: "100x100" %>
                 <%= f.attachment_field :image, class: "form-control-file" %>
-              </td>
+              </th>
             </tr>
             <tr>
-              <td>デザイン名</td>
-              <td><%= @design.name %></td>
+              <th>デザイン名</th>
+              <th><%= @design.name %></th>
             </tr>
             <tr>
-              <td>ベース価格</td>
-              <td class="text-nowrap"><%= f.text_field :price, class: "form-control mr-1", style: "display: inline" %>円</td>
+              <th>ベース価格</th>
+              <th class="text-nowrap"><%= f.text_field :price, class: "form-control mr-1", style: "display: inline" %>円</th>
             </tr>
             <tr>
-              <td>注文受付</td>
-              <td>
+              <th>注文受付</th>
+              <th>
                 <%= f.radio_button :is_ordered, :on_sale %>
                 <%= f.label :受付中, class: "job_type_label" %>
                 <%= f.radio_button :is_ordered, :stop_sale %>
                 <%= f.label :受付停止, class: "job_type_label"%>
-              </td>
+              </th>
             </tr>
             <tr>
-              <td> </td>
-              <td>
+              <th> </th>
+              <th>
               <%= f.submit "変更する", class: "btn btn-success"  %>
-              </td>
+              </th>
             </tr>
           </tbody>
         </table>
