@@ -15,7 +15,7 @@ class Admin::LastsController < ApplicationController
       flash[:notice] = "新規登録しました。"
     else
       redirect_to request.referer
-      flash[:error] = "必要項目を入力してください"
+      flash[:alert] = "必要項目を入力してください"
     end
 
   end
@@ -31,7 +31,7 @@ class Admin::LastsController < ApplicationController
       flash[:notice] = "変更しました。"
     else
       redirect_to request.referer
-      flash[:error] = "必要項目を入力してください"
+      flash[:alert] = "必要項目を入力してください"
     end
   end
 
@@ -39,7 +39,7 @@ class Admin::LastsController < ApplicationController
     last = Last.find(params[:id])
     last.destroy
     redirect_to admin_lasts_path
-    flash[:notice] = "削除しました。"
+    flash[:alert] = "削除しました。"
   end
 
   private

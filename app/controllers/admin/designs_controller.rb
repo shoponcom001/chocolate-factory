@@ -15,7 +15,7 @@ class Admin::DesignsController < ApplicationController
       flash[:notice] = "新規登録しました。"
     else
       redirect_to request.referer
-      flash[:error] = "必要項目を入力してください"
+      flash[:alert] = "必要項目を入力してください"
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::DesignsController < ApplicationController
       flash[:notice] = "変更しました。"
     else
       redirect_to request.referer
-      flash[:error] = "必要項目を入力してください"
+      flash[:alert] = "必要項目を入力してください"
     end
   end
 

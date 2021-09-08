@@ -4,3 +4,15 @@ ja:
       is_ordered:
         on_sale: "受付中"
         stop_sale: "受付停止"
+    user:
+      is_deleted:
+        consent: "有効"
+        nonconsent: "退会"
+
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン
