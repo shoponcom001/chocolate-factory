@@ -1,2 +1,31 @@
-<h1>Admin::Users#show</h1>
-<p>Find me in app/views/admin/users/show.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h2><%= @user.name %>さんの詳細情報</h2>
+      <table class="table table-borderless">
+        <tr>
+          <th>会員名</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>メールアドレス</th>
+          <th><%= @user.email %></th>
+        </tr>
+        <tr>
+          <th>ステータス</th>
+          <div>
+            <% if @user.is_deleted_before_type_cast == 0 %>
+              <td class="text-success"><%= @user.is_deleted_i18n %></td>
+            <% else %>
+              <td class="text-secondary"><%= @user.is_deleted_i18n %></td>
+            <% end %>
+          </div>
+        </tr>
+        <tr>
+          <td> </td>
+          <td><%= link_to "編集する", edit_admin_user_path(@user), class: "btn btn-success" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
