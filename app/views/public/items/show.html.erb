@@ -1,2 +1,56 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <table class="table table-bordered">
+        <%= form_with model: @item, url: orders_confirm_path, method: :post, local:true do |f| %>
+          <tbody>
+            <tr>
+              <th colspan="2">
+
+              <%= attachment_image_tag @design, :image, :fill, 785, 600, format: "jpeg" %></br>参考画像
+              </th>
+            </tr>
+            <tr>
+              <th style="width: 20%">デザイン名</th>
+              <td><%= @design.name %></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">金額</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">革のランク</th>
+              <td><%= f.collection_select :buy_name, Rank.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">革のカラー</th>
+              <td><%= f.collection_select :buy_name, Color.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">木型タイプ</th>
+              <td><%= f.collection_select :buy_name, Last.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">靴のサイズ</th>
+              <td><%= f.collection_select :size, Size.all, :id, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+            </tr>
+            <tr>
+              <th style="width: 20%">教材</th>
+              <td>
+                <%= f.radio_button :due_date, :buy %>
+                <%= f.label :いる, class: "job_type_label" %>
+                <%= f.radio_button :due_date, :not_buy %>
+                <%= f.label :いらない, class: "job_type_label"%>
+              </td>
+            </tr>
+            <tr>
+              <th style="width: 20%">納期</th>
+              <td>１ヶ月〜</td>
+            </tr>
+
+          </tbody>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>
