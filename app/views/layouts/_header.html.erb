@@ -5,7 +5,7 @@
         <div class="col">
       <%= link_to image_tag("chocolate_factory_ロゴ.jpg", width: 100), root_path, class: "navbar-brand p-3" %>
       <% if user_signed_in? %>
-          ようこそ<%= link_to "#{current_user.name}", users_my_page_path %>さん
+        ようこそ<%= link_to "#{current_user.name}", users_my_page_path %>さん
       <% end %>
         </div>
       </div>
@@ -28,6 +28,9 @@
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
         <% elsif admin_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "納期", new_admin_period_path, class: 'nav-link text-dark' %>
+        </li>
         <li class="nav-item">
           <%= link_to "会員一覧", admin_users_path, class: 'nav-link text-dark' %>
         </li>
