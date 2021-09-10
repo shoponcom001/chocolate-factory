@@ -39,6 +39,7 @@ namespace :admin do
   resources :ranks, except: [:show]
   resources :colors, except: [:show]
   resources :lasts, except: [:show]
+  resources :periods
 
   resources :users, only: [:index, :show, :edit, :update]
 

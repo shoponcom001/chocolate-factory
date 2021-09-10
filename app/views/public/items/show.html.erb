@@ -2,11 +2,10 @@
   <div class="row mt-5">
     <div class="col-8 mx-auto">
       <table class="table table-bordered">
-        <%= form_with model: @item, url: orders_confirm_path, method: :post, local:true do |f| %>
+        <%= form_with url: orders_confirm_path, method: :post, local:true do |f| %>
           <tbody>
             <tr>
               <th colspan="2">
-
               <%= attachment_image_tag @design, :image, :fill, 785, 600, format: "jpeg" %></br>参考画像
               </th>
             </tr>
@@ -37,17 +36,19 @@
             <tr>
               <th style="width: 20%">教材</th>
               <td>
-                <%= f.radio_button :due_date, :buy %>
-                <%= f.label :いる, class: "job_type_label" %>
-                <%= f.radio_button :due_date, :not_buy %>
-                <%= f.label :いらない, class: "job_type_label"%>
+                <%= f.radio_button :material, :buy %>
+                <%= f.label :教材あり, class: "job_type_label" %>
+                <%= f.radio_button :material, :not_buy %>
+                <%= f.label :教材なし, class: "job_type_label"%>
               </td>
             </tr>
             <tr>
               <th style="width: 20%">納期</th>
-              <td>１ヶ月〜</td>
+              <td><%= @period %></td>
             </tr>
-
+            <tr>
+              <td colspan="2"><%= f.submit "注文する", class: "col text-center btn btn-success" %></td>
+            </tr>
           </tbody>
         </table>
       <% end %>
