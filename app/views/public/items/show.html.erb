@@ -15,7 +15,7 @@
             </tr>
             <tr>
               <th style="width: 20%">金額</th>
-              <td></td>
+              <td><%= @design.price %>円〜</td>
             </tr>
             <tr>
               <th style="width: 20%">革のランク</th>
@@ -37,14 +37,14 @@
               <th style="width: 20%">教材</th>
               <td>
                 <%= f.radio_button :material, :buy %>
-                <%= f.label :教材あり, class: "job_type_label" %>
+                <%= f.label :教材あり, class: "job_type_label" %><%= "+5000円" %>
                 <%= f.radio_button :material, :not_buy %>
                 <%= f.label :教材なし, class: "job_type_label"%>
               </td>
             </tr>
             <tr>
               <th style="width: 20%">納期</th>
-              <td><%= @period %></td>
+              <td><%= @period.span %></td>
             </tr>
             <tr>
               <td colspan="2"><%= f.submit "注文する", class: "col text-center btn btn-success" %></td>

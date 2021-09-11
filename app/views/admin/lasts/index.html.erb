@@ -6,6 +6,7 @@
         <%= link_to new_admin_last_path, class: "btn btn-light shadow-sm rounded-circle p-0 text-center", style: "width:2rem;height:2rem;" do %>
         <p>+</p>
         <% end %>
+        </div>
       <table class="table">
         <thead>
           <tr>
@@ -15,12 +16,14 @@
           </tr>
         </thead>
         <% @lasts.each do |last| %>
-        <tr>
-          <td><%= last.id %></td>
-          <td><%= last.name %></td>
-          <td><%= link_to "編集する", edit_admin_last_path(last), class: "btn btn-success" %></td>
-          <td><%= link_to "削除する", admin_last_path(last), method: :delete, class: "btn btn-danger" %></td>
-        </tr>
+        <tbody>
+          <tr>
+            <td><%= last.id %></td>
+            <td><%= last.name %></td>
+            <td><%= link_to "編集する", edit_admin_last_path(last), class: "btn btn-success" %></td>
+            <td><%= link_to "削除する", admin_last_path(last), method: :delete, class: "btn btn-danger" %></td>
+          </tr>
+        </tbody>
         <% end %>
       </table>
     </div>

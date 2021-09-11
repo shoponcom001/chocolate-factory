@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_10_064806) do
+ActiveRecord::Schema.define(version: 2021_09_10_063017) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2021_09_10_064806) do
   create_table "items", force: :cascade do |t|
     t.integer "order_id", null: false
     t.integer "design_id", null: false
+    t.integer "period_id", null: false
     t.string "buy_name", null: false
     t.boolean "material"
-    t.integer "day", null: false
     t.integer "size", null: false
     t.integer "buy_price", null: false
     t.integer "production_status", default: 0, null: false
@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2021_09_10_064806) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.integer "day"
-    t.string "span"
+    t.integer "day", null: false
+    t.string "span", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

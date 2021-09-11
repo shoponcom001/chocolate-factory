@@ -1,4 +1,4 @@
-class Admin::PeriodsController < ApplicationController
+class Admin::PeriodsController < Admin::AdminsController
   
   def new
     @period = Period.new
@@ -8,24 +8,13 @@ class Admin::PeriodsController < ApplicationController
     @period = Period.new(period_params)
     if @period.save
       redirect_to admin_root_path
+      flash[:notice] = "納期を登録しました"
     else
       redirect_to request.referer
+      flash[:alert] = "必要項目を入力してください"
     end
   end
-  
-  def edit
-    @period = Period.find(params[:id])
-  end
-  
-  def update
-    period = Period.find(params[:id])
-    if period.update(period_params)
-      redirect_to admin_root_path
-    else
-      redirect_to request.referer
-    end
-  end
-  
+
   private
   
   def period_params
