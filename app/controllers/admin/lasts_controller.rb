@@ -1,4 +1,4 @@
-class Admin::LastsController < ApplicationController
+class Admin::LastsController < Admin::AdminsController
 
   def index
     @lasts = Last.all

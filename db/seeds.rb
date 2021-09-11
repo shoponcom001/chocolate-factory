@@ -10,3 +10,7 @@ Admin.create!(
    email: 'chocolate_factory@gmail.com',
    password: '000000',
 )
+Period.create!(
+   span: '１ヶ月',
+   day: '30',
+   )
