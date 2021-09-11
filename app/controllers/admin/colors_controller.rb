@@ -1,4 +1,4 @@
-class Admin::ColorsController < ApplicationController
+class Admin::ColorsController < Admin::AdminsController
 
   def index
     @colors = Color.all
@@ -39,6 +39,10 @@ class Admin::ColorsController < ApplicationController
     color.destroy
     redirect_to admin_colors_path
     flash[:alert] = "削除しました。"
+  end
+  
+  def set_due_date_period
+    @due_date_period = DueDatePeriod(params[:id])
   end
 
   private

@@ -15,5 +15,4 @@ class User < ApplicationRecord
 
   enum is_deleted: { consent: false, nonconsent: true }
 
-
 end

@@ -1,4 +1,4 @@
-class Admin::DesignsController < ApplicationController
+class Admin::DesignsController < Admin::AdminsController
 
   def index
     @designs = Design.all
