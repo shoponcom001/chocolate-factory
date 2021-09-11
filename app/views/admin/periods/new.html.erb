@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-5 mx-auto">
+      <h2>納期設定</h2>
+      <%= form_with model: [:admin, @period], local:true do |f| %>
+        <table class="table table-borderless">
+          <tr>
+            <td>納期目安</td>
+            <td><%= f.text_field :span, class: "form-control" %></td>
+          </tr>
+          <tr>
+            <td>納期日数</td>
+            <td class="text-nowrap"><%= f.text_field :day, class: "form-control mr-1", style: "display: inline"%>日</td>
+          </tr>
+          <tr>
+            <td> </td>
+            <td><%= f.submit "登録する", class: "btn btn-success" %></td>
+          </tr>
+        </table>
+      <% end %>
+    </div>
+  </div>
+</div>

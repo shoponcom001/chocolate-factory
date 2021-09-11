@@ -1,2 +1,17 @@
-<h1>Public::Designs#index</h1>
-<p>Find me in app/views/public/designs/index.html.erb</p>
+<div class="container">
+  <div class="row pr-1 pl-1">
+    <% @designs.each do |design| %>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= link_to item_path(design) do %>
+              <%= attachment_image_tag design, :image, :fill, 300, 300, format: "jpeg" %>
+            <% end %>
+          </li>
+          <li class="list-group-item"><%= design.name %></li>
+          <li class="list-group-item">金額：<%= design.price %>円〜</li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>
