@@ -17,7 +17,7 @@ devise_for :users, controllers: {
 
  get '/designs', to: 'public/designs#index'
 
- get '/items/:id', to: 'public/items#show', as: 'item'
+ resources :items, module: :public, only: [:show, :create]
 
  resources :orders, module: :public, only: [:new, :create, :index, :show]
   post '/orders/confirm', to: 'public/orders#confirm'
@@ -39,7 +39,7 @@ namespace :admin do
   resources :ranks, except: [:show]
   resources :colors, except: [:show]
   resources :lasts, except: [:show]
-  resources :periods
+  resources :periods, only: [:new, :create]
 
   resources :users, only: [:index, :show, :edit, :update]
 
