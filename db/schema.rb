@@ -76,8 +76,8 @@ ActiveRecord::Schema.define(version: 2021_09_10_063017) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.integer "day", null: false
-    t.string "span", null: false
+    t.integer "day"
+    t.string "span"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
