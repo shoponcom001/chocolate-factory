@@ -11,7 +11,11 @@
             </tr>
             <tr>
               <th style="width: 20%">デザイン名</th>
-              <td><%= @design.name %></td>
+              <td>
+                <%= @design.name %>
+                <%= f.hidden_field :design_id, :value => @design.id %>
+              </td>
+
             </tr>
             <tr>
               <th style="width: 20%">金額</th>
@@ -19,15 +23,20 @@
             </tr>
             <tr>
               <th style="width: 20%">革のランク</th>
-              <td><%= f.collection_select :buy_name, Rank.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+              <!--<td><%#= select_tag :rank_name, Rank.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>-->
+              <td><%= select_tag(:rank_id, options_from_collection_for_select(Rank.all, :id, :name), { prompt: "選択してください", class: "form-control"}) %></td>
             </tr>
             <tr>
               <th style="width: 20%">革のカラー</th>
-              <td><%= f.collection_select :buy_name, Color.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+              <!--<td><%#= collection_select :color_name, Color.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>-->
+              <td><%= select_tag(:color_id, options_from_collection_for_select(Color.all, :id, :name), { prompt: "選択してください", class: "form-control"}) %></td>
+            </tr>
             </tr>
             <tr>
               <th style="width: 20%">木型タイプ</th>
-              <td><%= f.collection_select :buy_name, Last.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>
+              <!--<td><%#= collection_select :last_name, Last.all, :name, :name, { prompt: "選択してください" }, {class: "form-control"} %></td>-->
+              <td><%= select_tag(:last_id, options_from_collection_for_select(Last.all, :id, :name), { prompt: "選択してください", class: "form-control"}) %></td>
+            </tr>
             </tr>
             <tr>
               <th style="width: 20%">靴のサイズ</th>
@@ -44,7 +53,10 @@
             </tr>
             <tr>
               <th style="width: 20%">納期</th>
-              <td><%= @period.span %></td>
+              <td>
+                <%= @period.span %>
+                <%= f.hidden_field :period_id, :value => @period.id %>
+              </td>
             </tr>
             <tr>
               <td colspan="2"><%= f.submit "注文する", class: "col text-center btn btn-success" %></td>
