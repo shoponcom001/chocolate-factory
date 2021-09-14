@@ -18,6 +18,7 @@ class Public::ItemsController < ApplicationController
       @item.buy_price += 5000
     end
     @item.save
+    session[:item_id] = @item.id
     redirect_to new_order_path
   end
 

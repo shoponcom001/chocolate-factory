@@ -1,6 +1,6 @@
 class Public::UsersController < ApplicationController
-  
-  
+
+
   def show
     @user = User.find(current_user.id)
   end
@@ -30,12 +30,12 @@ class Public::UsersController < ApplicationController
     flash[:notice] = "ありがとうございました。またのご利用をお待ちしております。"
     redirect_to root_path
   end
-  
-  
+
+
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :email)
   end
-  
+
 end
