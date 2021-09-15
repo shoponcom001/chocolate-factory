@@ -15,7 +15,7 @@ class Public::ItemsController < ApplicationController
     @item.buy_name = rank.name + color.name + last.name
     @item.buy_price = rank.price + design.price
     if @item.material == "buy"
-      @item.buy_price += 5000
+      @item.buy_price += 2000
     end
     @item.save
     session[:item_id] = @item.id
