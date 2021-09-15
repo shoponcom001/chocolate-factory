@@ -3,7 +3,7 @@
     <div class="container">
       <div row>
         <div class="col">
-      <%= link_to image_tag("chocolate_factory_ロゴ.jpg", width: 100), root_path, class: "navbar-brand p-3" %>
+      <%= link_to image_tag("chocolate_factory_logo.jpg", width: 100), root_path, class: "navbar-brand p-3" %>
       <% if user_signed_in? %>
         ようこそ<%= link_to "#{current_user.name}", users_my_page_path %>さん
       <% end %>
