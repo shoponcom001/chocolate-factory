@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2021_09_10_063017) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "order_id", null: false
+    t.integer "order_id"
     t.integer "design_id", null: false
     t.integer "period_id", null: false
     t.string "buy_name", null: false
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_09_10_063017) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["design_id"], name: "index_items_on_design_id"
-    t.index ["order_id"], name: "index_items_on_order_id"
   end
 
   create_table "lasts", force: :cascade do |t|
