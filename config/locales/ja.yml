@@ -12,7 +12,10 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         bank_transfer: "銀行振り込み"
-        
+    item:
+      material:
+        buy: "あり"
+        not_buy: "なし"
 
   activerecord:
     attributes:
