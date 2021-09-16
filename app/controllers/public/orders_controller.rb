@@ -25,6 +25,16 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.user = current_user
     @order.save
+    @item = Item.find(session[:item_id])
+    @item = Item.create(
+      order_id: @order.id,
+      design_id: @item.design_id,
+      period_id: @item.period_id,
+      buy_name: @item.buy_name,
+      material: @item.material,
+      size: @item.size,
+      buy_price: @item.buy_price
+      )
     redirect_to orders_complete_path
   end
 
