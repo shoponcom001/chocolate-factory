@@ -5,5 +5,8 @@ class Item < ApplicationRecord
 
   enum material: { buy: true, not_buy: false }
 
+  validates :size, presence: true
+  validates :material, presence: true
+
 
 end
