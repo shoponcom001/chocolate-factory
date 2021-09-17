@@ -1,5 +1,5 @@
 class Public::OrdersController < ApplicationController
-
+  before_action :authenticate_user!
   def new
     @order = Order.new
   end
@@ -13,9 +13,11 @@ class Public::OrdersController < ApplicationController
     @order.price = @item.buy_price
     @period = Period.last
     @order.due_date = @item.created_at + @period.day.days
-    # session[:order_id] = @order.id
-    @order.save
-    # session[:item_id] = nil
+    if
+      @order.postal_code.empty? || @order.address.empty? || @order.name.empty? || @order.phone_number.empty?
+      redirect_to request.referer
+      flash[:alert] = "必要項目を選択してください"
+    end
   end
 
   def complete
@@ -35,12 +37,13 @@ class Public::OrdersController < ApplicationController
       size: @item.size,
       buy_price: @item.buy_price
       )
-    redirect_to orders_complete_path
+    render :complete
   end
 
   def index
-    @orders = Order.all
-    @items = Item.all
+    @orders = Order.where(user_id: current_user.id)
+    @items = Item.where(order_id: params[:id])
+    # byebug
   end
 
   def show
