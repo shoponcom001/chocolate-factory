@@ -1,3 +1,55 @@
-<h1>Public::Orders#show</h1>
-<p>Find me in app/views/public/orders/show.html.erb</p>
-<h2></h2>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <table class="table table-boderless">
+        <tr>
+          <th>ユーザー名前</th>
+          <td><%= @order.user.name %></td>
+        </tr>
+        <tr>
+          <th>お届け先名前</th>
+          <td><%= @order.name %></td>
+        </tr>
+        <tr>
+          <th>お届け先郵便番号</th>
+          <td><%= @order.postal_code %></td>
+        </tr>
+        <tr>
+          <th>お届け先住所</th>
+          <td><%= @order.address %></td>
+        </tr>
+        <tr>
+          <th>お届け先電話番号</th>
+          <td><%= @order.phone_number %></td>
+        </tr>
+        <tr>
+          <th>お支払い方法</th>
+          <td><%= @order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th>ご請求額</th>
+          <td><%= @order.price %></td>
+        </tr>
+        <tr>
+          <th>デザイン名</th>
+          <td><%= @order.item.design.name %></td>
+        </tr><tr>
+          <th>メニュー</th>
+          <td><%= @order.item.buy_name %></td>
+        </tr>
+        <tr>
+          <th>サイズ</th>
+          <td><%= @size.name %></td>
+        </tr>
+        <tr>
+          <th>教材</th>
+          <td><%= @order.item.material_i18n %></td>
+        </tr>
+        <tr>
+          <th>ご購入日</th>
+          <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

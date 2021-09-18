@@ -15,7 +15,7 @@
           <tr>
             <td><%= @design.name %></td>
             <td><%= @item.buy_name %></td>
-            <td><%= @size.name%></td>
+            <td><%= @size.name %></td>
             <td><%= @item.material_i18n %></td>
           </tr>
         </tbody>
@@ -55,32 +55,35 @@
         </tbody>
       </table>
         <div class="col text-center">
-          <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
-            <%= f.hidden_field :postal_code, :value => @order.postal_code %>
-            <%= f.hidden_field :address, :value => @order.address %>
-            <%= f.hidden_field :name, :value => @order.name %>
-            <%= f.hidden_field :phone_number, :value => @order.phone_number %>
-            <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-            <%= f.hidden_field :price, :value => @order.price %>
-            <%= f.hidden_field :due_date, :value => @order.due_date %>
-            <%= f.submit "注文を確定する", class: "btn btn-success" %>
+          <% if @order.payment_method == "bank_transfer" %>
+            <%= form_with model: @order, url: orders_path, method: :post, local:true do |f| %>
+              <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+              <%= f.hidden_field :address, :value => @order.address %>
+              <%= f.hidden_field :name, :value => @order.name %>
+              <%= f.hidden_field :phone_number, :value => @order.phone_number %>
+              <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+              <%= f.hidden_field :price, :value => @order.price %>
+              <%= f.hidden_field :due_date, :value => @order.due_date %>
+              <%= f.submit "注文を確定する", class: "btn btn-success" %>
+            <% end %>
+          <% else %>
+            <%= form_with model: @order, url: pay_orders_path, method: :post, local: true do |f| %>
+              <%= f.hidden_field :postal_code, :value => @order.postal_code %>
+              <%= f.hidden_field :address, :value => @order.address %>
+              <%= f.hidden_field :name, :value => @order.name %>
+              <%= f.hidden_field :phone_number, :value => @order.phone_number %>
+              <%= f.hidden_field :payment_method, :value => @order.payment_method %>
+              <%= f.hidden_field :price, :value => @order.price %>
+              <%= f.hidden_field :due_date, :value => @order.due_date %>
+              <script
+                type="text/javascript"
+                src="https://checkout.pay.jp"
+                class="payjp-button"
+                data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
+              </script>
+            <% end %>
           <% end %>
-          <%= form_with model: @order, url: pay_orders_path, method: :post, local: true do |f| %>
-            <%= f.hidden_field :postal_code, :value => @order.postal_code %>
-            <%= f.hidden_field :address, :value => @order.address %>
-            <%= f.hidden_field :name, :value => @order.name %>
-            <%= f.hidden_field :phone_number, :value => @order.phone_number %>
-            <%= f.hidden_field :payment_method, :value => @order.payment_method %>
-            <%= f.hidden_field :price, :value => @order.price %>
-            <%= f.hidden_field :due_date, :value => @order.due_date %>
-            <script
-              type="text/javascript"
-              src="https://checkout.pay.jp"
-              class="payjp-button"
-              data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
-            </script>
-          <% end %>
-        </div>
+        <!--</div>-->
     </div>
   </div>
 </div>
