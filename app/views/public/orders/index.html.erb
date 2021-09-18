@@ -24,9 +24,10 @@
               <%= order.name %><br>
               <%= order.phone_number %></br>
             </td>
-            <td>
-              <%= order.item.design.name %>
-            </td>
+            <td><%= order.item.design.name %></td>
+            <td><%= order.price %>円</td>
+            <td><%= order.order_status %></td>
+            
           </tr>
           <% end %>
         </tbody>

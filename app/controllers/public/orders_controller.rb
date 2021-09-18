@@ -15,8 +15,8 @@ class Public::OrdersController < ApplicationController
     @order.due_date = @item.created_at + @period.day.days
     if
       @order.postal_code.empty? || @order.address.empty? || @order.name.empty? || @order.phone_number.empty?
-      redirect_to request.referer
       flash[:alert] = "必要項目を選択してください"
+      redirect_to request.referer
     end
   end
 
