@@ -21,12 +21,12 @@ devise_for :users, controllers: {
 
  resources :orders, module: :public, only: [:new, :create, :index, :show] do
     collection do
-      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
-      post 'pay/:id'=>   'items#pay', as: 'pay'
-      get  'done'=>      'items#done', as: 'done'
+      get  'purchase/:id'=>  'orders#purchase', as: 'purchase'
+      post 'pay'=>   'orders#pay', as: 'pay'
+      get  'done'=>      'orders#done', as: 'done'
     end
   end
- 
+
   post '/orders/confirm', to: 'public/orders#confirm'
   get '/orders/complete', to: 'public/orders#complete'
 
