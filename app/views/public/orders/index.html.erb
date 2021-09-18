@@ -25,9 +25,7 @@
               <%= order.phone_number %></br>
             </td>
             <td>
-              <% @items.each do |item| %>
-                <%= item.design.name %>
-              <% end %>
+              <%= order.item.design.name %>
             </td>
           </tr>
           <% end %>
