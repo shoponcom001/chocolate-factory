@@ -65,6 +65,14 @@
             <%= f.hidden_field :due_date, :value => @order.due_date %>
             <%= f.submit "注文を確定する", class: "btn btn-success" %>
           <% end %>
+          <%= form_with action: :pay, method: :post, local: true do |form| %>
+            <script
+              type="text/javascript"
+              src="https://checkout.pay.jp"
+              class="payjp-button"
+              data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
+            </script>
+          <% end %>
         </div>
     </div>
   </div>

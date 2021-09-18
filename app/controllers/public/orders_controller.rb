@@ -24,6 +24,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+
     @order = Order.new(order_params)
     @order.user = current_user
     @order.save
@@ -37,6 +38,7 @@ class Public::OrdersController < ApplicationController
       size: @item.size,
       buy_price: @item.buy_price
       )
+    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
     render :complete
   end
 
@@ -47,6 +49,15 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
+  end
+
+  def pay
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    charge = Payjp::Charge.create(
+      :amount => @order.price,
+      :card => params['payjp-token'],
+      :currency => 'jpy'
+    )
   end
 
   private

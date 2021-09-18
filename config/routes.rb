@@ -19,7 +19,14 @@ devise_for :users, controllers: {
 
  resources :items, module: :public, only: [:show, :create]
 
- resources :orders, module: :public, only: [:new, :create, :index, :show]
+ resources :orders, module: :public, only: [:new, :create, :index, :show] do
+    collection do
+      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+      post 'pay/:id'=>   'items#pay', as: 'pay'
+      get  'done'=>      'items#done', as: 'done'
+    end
+  end
+ 
   post '/orders/confirm', to: 'public/orders#confirm'
   get '/orders/complete', to: 'public/orders#complete'
 
