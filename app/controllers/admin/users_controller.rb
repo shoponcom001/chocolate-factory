@@ -14,11 +14,11 @@ class Admin::UsersController < Admin::AdminsController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
-      redirect_to admin_user_path(user)
       flash[:notice] = "変更しました。"
+      redirect_to admin_user_path(user)
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 

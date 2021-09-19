@@ -15,8 +15,8 @@ class Public::OrdersController < ApplicationController
     @order.due_date = @item.created_at + @period.day.days
     if
       @order.postal_code.empty? || @order.address.empty? || @order.name.empty? || @order.phone_number.empty?
-      redirect_to request.referer
       flash[:alert] = "必要項目を選択してください"
+      redirect_to request.referer
     end
   end
 
@@ -24,40 +24,41 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
-
     @order = Order.new(order_params)
     @order.user = current_user
     @order.save
     @item = Item.find(session[:item_id])
-    @item = Item.create(
-      order_id: @order.id,
-      design_id: @item.design_id,
-      period_id: @item.period_id,
-      buy_name: @item.buy_name,
-      material: @item.material,
-      size: @item.size,
-      buy_price: @item.buy_price
-      )
+    @item.order_id = @order.id
+    @item.save
     ContactMailer.send_mail(current_user, @order, @design, @item).deliver
     render :complete
   end
 
   def index
-    @orders = Order.where(user_id: current_user.id)
+    @orders = Order.where(user_id: current_user.id).order(created_at: :desc)
     @items = Item.where(order_id: params[:id])
-    # byebug
   end
 
   def show
+    @order = Order.find(params[:id])
+    @size = Size.find(@order.item.size)
   end
 
   def pay
+    @order = Order.new(order_params)
+    @order.user = current_user
+    @order.save
+    @item = Item.find(session[:item_id])
+    @item.order_id = @order.id
+    @item.save
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     charge = Payjp::Charge.create(
       :amount => @order.price,
       :card => params['payjp-token'],
       :currency => 'jpy'
     )
+    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
+    render :complete
   end
 
   private

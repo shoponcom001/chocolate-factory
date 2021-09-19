@@ -12,11 +12,11 @@ before_action :authenticate_user!
   def update
     @user = User.find(current_user.id)
     if @user.update(user_params)
-      redirect_to users_my_page_path
       flash[:notice] = "変更しました。"
+      redirect_to users_my_page_path
     else
-      redirect_to request.referer
       flash[:error] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 

@@ -11,11 +11,11 @@ class Admin::LastsController < Admin::AdminsController
   def create
     @last = Last.new(last_params)
     if @last.save
-      redirect_to admin_lasts_path
       flash[:notice] = "新規登録しました。"
+      redirect_to admin_lasts_path
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
 
   end
@@ -27,19 +27,19 @@ class Admin::LastsController < Admin::AdminsController
   def update
     last = Last.find(params[:id])
     if last.update(last_params)
-      redirect_to admin_lasts_path
       flash[:notice] = "変更しました。"
+      redirect_to admin_lasts_path
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 
   def destroy
     last = Last.find(params[:id])
     last.destroy
-    redirect_to admin_lasts_path
     flash[:alert] = "削除しました。"
+    redirect_to admin_lasts_path
   end
 
   private

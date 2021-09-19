@@ -1,0 +1,35 @@
+
+<h2><%= @order.user.name %> 様</h2>
+<p>
+  ご購入ありがとうございます。<br>
+  chocolate_factoryの樋口です。<br>
+  注文商品を発送しました。</br>
+  到着までお待ちください。<br>
+</p>
+
+<p>■配送先情報<br>
+    ──────────────<br>
+    お名前：<%= @order.name %><br>
+    ご住所：<%= @order.address %><br>
+    電話番号：<%= @order.phone_number %><br>
+    お支払い方法：<%= @order.payment_method_i18n %><br>
+    ──────────────<br>
+  </p>
+
+  <p>■商品情報<br>
+    ──────────────<br>
+    デザイン：<%= @order.item.design.name %><br>
+    メニュー：<%= @order.item.buy_name %><br>
+    教材：<%= @order.item.material_i18n %><br>
+    ──────────────<br>
+  </p>
+
+  <p>請求額：<%= @order.price %>円</p>
+
+  <p>本ページの注文詳細に詳しく書いてありますのでそちらもご確認ください。</p>
+
+  <p>この度はご注文いただき誠にありがとうございました。</p>
+
+  <p>今後ともChocolate_Factoryをよろしくお願いします。</p>
+
+
