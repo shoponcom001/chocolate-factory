@@ -7,11 +7,11 @@ class Admin::PeriodsController < Admin::AdminsController
   def create
     @period = Period.new(period_params)
     if @period.save
-      redirect_to admin_root_path
       flash[:notice] = "納期を登録しました"
+      redirect_to admin_root_path
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 
