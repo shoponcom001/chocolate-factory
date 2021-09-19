@@ -1,2 +1,35 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col mx-auto">
+      <h4>注文履歴一覧</h4>
+      <table class="table table-hover">
+        <thead class="thead-light">
+          <tr>
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>デザイン</th>
+            <th>教材</th>
+            <th>ステータス</th>
+            <th>納期</th>
+          </tr>
+        </thead>
+        <% @orders.each do |order| %>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to admin_order_path(order) do %>
+                <%= order.created_at.strftime('%Y/%m/%d %H:%M') %>
+              <% end %>
+            </td>
+            <td><%= order.user.name %></td>
+            <td><%= order.item.design.name %></td>
+            <td><%= order.item.material_i18n %></td>
+            <td><%= order.order_status_i18n %></td>
+            <td><%= order.due_date.strftime('%Y/%m/%d') %></td>
+          </tr>
+        </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
