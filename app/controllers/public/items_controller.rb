@@ -8,6 +8,10 @@ class Public::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    if params[:rank_id].blank? || params[:color_id].blank? || params[:last_id].blank?
+      flash[:alert] = "必要項目を選択してください"
+      return redirect_to request.referer
+    end
     rank = Rank.find(params[:rank_id])
     color = Color.find(params[:color_id])
     last = Last.find(params[:last_id])
@@ -17,9 +21,13 @@ class Public::ItemsController < ApplicationController
     if @item.material == "buy"
       @item.buy_price += 2000
     end
-    @item.save
-    session[:item_id] = @item.id
-    redirect_to new_order_path
+    if @item.save
+      session[:item_id] = @item.id
+      redirect_to new_order_path
+    else
+      flash[:alert] = "必要項目を選択してください"
+      redirect_to request.referer
+    end
   end
 
   private

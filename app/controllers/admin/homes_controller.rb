@@ -1,9 +1,7 @@
 class Admin::HomesController < Admin::AdminsController
-  def top
-  end
 
-  def set_due_date_period
-    @due_date_period = DueDatePeriod(params[:id])
+  def top
+    @orders = Order.all.order(created_at: :desc)
   end
 
 end

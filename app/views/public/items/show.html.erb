@@ -55,7 +55,9 @@
               </td>
             </tr>
             <tr>
-              <td colspan="2"><%= f.submit "注文する", class: "col text-center btn btn-success" %></td>
+              <% if current_user %>
+                <td colspan="2"><%= f.submit "注文する", class: "col text-center btn btn-success" %></td>
+              <% end %>
             </tr>
           </tbody>
         </table>

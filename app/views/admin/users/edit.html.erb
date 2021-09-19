@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-8 mx-auto">
-      <h2><%= @user.name %>さんの会員編集</h2>
+      <h4><%= @user.name %>さんの会員編集</h4>
       <%= form_with model: [:admin, @user], local:true do |f| %>
       <table class="table table-borderless">
         <tr>
