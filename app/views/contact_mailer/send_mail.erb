@@ -21,13 +21,13 @@
 
   <p>■商品情報<br>
     ──────────────<br>
-    デザイン：<%= @item.design.name %><br>
-    メニュー：<%= @item.buy_name %><br>
-    教材：<%= @item.material_i18n %><br>
+    デザイン：<%= @order.item.design.name %><br>
+    メニュー：<%= @order.item.buy_name %><br>
+    教材：<%= @order.item.material_i18n %><br>
     ──────────────<br></p>
 
   <p>請求額：<%= @order.price %>円</p>
-  
+
   <p>本ページの注文詳細に詳しく書いてありますのでそちらもご確認ください。</p>
 
   <p>この度はご注文いただき誠にありがとうございました。</p>

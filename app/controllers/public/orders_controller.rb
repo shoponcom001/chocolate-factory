@@ -30,7 +30,7 @@ class Public::OrdersController < ApplicationController
     @item = Item.find(session[:item_id])
     @item.order_id = @order.id
     @item.save
-    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
+    ContactMailer.send_mail(current_user, @order).deliver
     render :complete
   end
 
@@ -57,7 +57,7 @@ class Public::OrdersController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy'
     )
-    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
+    ContactMailer.send_mail(current_user, @order).deliver
     render :complete
   end
 
