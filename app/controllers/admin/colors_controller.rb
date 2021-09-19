@@ -1,4 +1,5 @@
 class Admin::ColorsController < Admin::AdminsController
+  
 
   def index
     @colors = Color.all
@@ -11,11 +12,11 @@ class Admin::ColorsController < Admin::AdminsController
   def create
     @color = Color.new(color_params)
     if @color.save
-      redirect_to admin_colors_path
       flash[:notice] = "新規登録しました。"
+      redirect_to admin_colors_path
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 
@@ -26,25 +27,21 @@ class Admin::ColorsController < Admin::AdminsController
   def update
     color = Color.find(params[:id])
     if color.update(color_params)
-      redirect_to admin_colors_path
       flash[:notice] = "変更しました。"
+      redirect_to admin_colors_path
     else
-      redirect_to request.referer
       flash[:alert] = "必要項目を入力してください"
+      redirect_to request.referer
     end
   end
 
   def destroy
     color = Color.find(params[:id])
     color.destroy
-    redirect_to admin_colors_path
     flash[:alert] = "削除しました。"
+    redirect_to admin_colors_path
   end
   
-  def set_due_date_period
-    @due_date_period = DueDatePeriod(params[:id])
-  end
-
   private
 
   def color_params
