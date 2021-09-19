@@ -1,4 +1,5 @@
 class Admin::ColorsController < Admin::AdminsController
+  
 
   def index
     @colors = Color.all
@@ -41,10 +42,6 @@ class Admin::ColorsController < Admin::AdminsController
     redirect_to admin_colors_path
   end
   
-  def set_due_date_period
-    @due_date_period = DueDatePeriod(params[:id])
-  end
-
   private
 
   def color_params

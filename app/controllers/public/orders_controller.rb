@@ -30,12 +30,12 @@ class Public::OrdersController < ApplicationController
     @item = Item.find(session[:item_id])
     @item.order_id = @order.id
     @item.save
-    # ContactMailer.send_mail(current_user, @order, @design, @item).deliver
+    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
     render :complete
   end
 
   def index
-    @orders = Order.where(user_id: current_user.id)
+    @orders = Order.where(user_id: current_user.id).order(created_at: :desc)
     @items = Item.where(order_id: params[:id])
   end
 
@@ -57,7 +57,7 @@ class Public::OrdersController < ApplicationController
       :card => params['payjp-token'],
       :currency => 'jpy'
     )
-    # ContactMailer.send_mail(current_user, @order, @design, @item).deliver
+    ContactMailer.send_mail(current_user, @order, @design, @item).deliver
     render :complete
   end
 

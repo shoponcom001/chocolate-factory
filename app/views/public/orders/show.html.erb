@@ -46,6 +46,10 @@
           <td><%= @order.item.material_i18n %></td>
         </tr>
         <tr>
+          <th>製作ステータス</th>
+          <td><%= @order.item.production_status_i18n %></td>
+        </tr>
+        <tr>
           <th>ご購入日</th>
           <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
         </tr>

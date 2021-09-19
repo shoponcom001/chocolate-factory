@@ -13,6 +13,10 @@ class User < ApplicationRecord
     super && self.is_deleted == "consent"
   end
 
-  enum is_deleted: { consent: false, nonconsent: true }
+  enum is_deleted: { 
+    consent: false, 
+    nonconsent: true 
+    
+  }
 
 end
