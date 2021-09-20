@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-8 mx-auto">
+      <h4>ブログ投稿</h4>
+      <%= form_with model: [:admin, @blog], local: true do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th>画像</th>
+          <td><%= f.attachment_field :image, class: "form-control-file" %></td>
+        </tr>
+        <tr>
+          <th>タイトル</th>
+          <td><%= f.text_field :title, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <th>内容</th>
+          <td><%= f.text_area :body, class: "form-control", rows: "5" %></td>
+        </tr>
+        <tr>
+          <th> </th>
+          <td><%= f.submit "投稿", class: "btn btn-success" %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>

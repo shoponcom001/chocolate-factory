@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  namespace :public do
+    get 'blogs/index'
+    get 'blogs/show'
+  end
+  namespace :admin do
+    get 'blogs/index'
+    get 'blogs/new'
+    get 'blogs/show'
+    get 'blogs/edit'
+  end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -29,6 +39,11 @@ devise_for :users, controllers: {
 
   post '/orders/confirm', to: 'public/orders#confirm'
   get '/orders/complete', to: 'public/orders#complete'
+  
+  resources :blogs, module: :public, only: [:index, :show] do
+    resources :blog_comments, only:  [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
+  end
 
 resources :users, module: :public, only: [:edit, :update]
   get '/users/my_page', to: 'public/users#show'
@@ -47,8 +62,8 @@ namespace :admin do
   resources :colors, except: [:show]
   resources :lasts, except: [:show]
   resources :periods, only: [:new, :create]
-
   resources :users, only: [:index, :show, :edit, :update]
+  resources :blogs
 
 
 end

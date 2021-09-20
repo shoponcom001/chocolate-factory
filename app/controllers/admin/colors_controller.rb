@@ -1,6 +1,5 @@
 class Admin::ColorsController < Admin::AdminsController
   
-
   def index
     @colors = Color.all
   end

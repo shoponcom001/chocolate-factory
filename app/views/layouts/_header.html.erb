@@ -24,6 +24,9 @@
         <li class="nav-item">
           <%= link_to '注文履歴', orders_path, class: 'nav-link text-dark' %>
         </li>
+        <li class="nav-item">
+          <%= link_to "ブログ", blogs_path, class: "nav-link text-dark" %>
+        </li>
         <li class="nev-item">
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
@@ -48,6 +51,9 @@
         </li>
         <li class="nav-item">
           <%= link_to "木型一覧", admin_lasts_path, class: 'nav-link text-dark' %>
+        </li>
+          <li class="nav-item">
+          <%= link_to "ブログ", admin_blogs_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
           <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
