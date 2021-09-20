@@ -11,7 +11,7 @@ class Admin::RanksController < Admin::AdminsController
   def create
     @rank = Rank.new(rank_params)
     if @rank.save
-      flash[:notice] = "新規登録しました。"
+      flash[:notice] = "新規登録しました"
       redirect_to admin_ranks_path
     else
       flash[:alert] = "必要項目を入力してください"
@@ -26,7 +26,7 @@ class Admin::RanksController < Admin::AdminsController
   def update
     rank = Rank.find(params[:id])
     if rank.update(rank_params)
-      flash[:notice] = "変更しました。"
+      flash[:notice] = "変更しました"
       redirect_to admin_ranks_path
     else
       flash[:alert] = "必要項目を入力してください"
@@ -37,7 +37,7 @@ class Admin::RanksController < Admin::AdminsController
   def destroy
     rank = Rank.find(params[:id])
     rank.destroy
-    flash[:alert] = "削除しました。"
+    flash[:alert] = "削除しました"
     redirect_to admin_ranks_path
   end
 
