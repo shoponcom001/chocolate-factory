@@ -2,11 +2,11 @@
   <div class="row mt-5">
     <div class="col-8 mx-auto">
         <%= form_with model: @item, local:true do |f| %>
-      <table class="table table-bordered">
+      <table class="table table-bordered shadow-lg">
           <tbody>
             <tr>
               <th colspan="2">
-              <%= attachment_image_tag @design, :image, :fill, 785, 600, format: "jpeg" %></br>参考画像
+              <%= attachment_image_tag @design, :image, class: "card-img-top" %></br>参考画像
               </th>
             </tr>
             <tr>

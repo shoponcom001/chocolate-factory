@@ -29,6 +29,14 @@ class Admin::BlogsController < Admin::AdminsController
   end
 
   def update
+    blog = Blog.find(params[:id])
+    if blog.update(blog_params)
+      flash[:notice] = "変更しました"
+      redirect_to admin_blog_path(blog)
+    else
+      flash[:alert] = "必須項目を入力してください"
+      redirect_to request.referer
+    end
   end
 
   def destroy
