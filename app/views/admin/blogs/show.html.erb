@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-8 mx-auto">
+    <div class="col mx-auto">
       <h4>ブログ詳細</h4>
       <table class="table table-borderless">
         <tr>
@@ -16,7 +16,11 @@
           <td><%= @blog.body %></td>
         </tr>
         <tr>
+          <td></td>
           <td><%= link_to "編集", edit_admin_blog_path(@blog), class: "btn btn-success" %></td>
+        </tr>
+        <tr>
+          <td></td>
           <td><%= link_to "削除", admin_blog_path(@blog), method: :delete, class: "btn btn-danger" %></td>
         </tr>
       </table>
