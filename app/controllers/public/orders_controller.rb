@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_order,only: [:show]
   def new
     @order = Order.new
   end
@@ -59,6 +60,13 @@ class Public::OrdersController < ApplicationController
     )
     ContactMailer.send_mail(current_user, @order).deliver
     render :complete
+  end
+
+  def correct_order
+    @order = Order.find(params[:id])
+    unless @order.user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
   private
