@@ -13,4 +13,4 @@ Admin.create!(
 Period.create!(
    span: '１ヶ月',
    day: '30',
-   )
+)

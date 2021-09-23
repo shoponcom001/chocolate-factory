@@ -1,0 +1,42 @@
+<div class="card w-50 mx-auto mt-4 shadow-lg">
+  <%= attachment_image_tag @blog, :image, class:"card-img-top"; %>
+    <div class="card-body">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title"><%= @blog.title %></h5>
+          <p class="card-text"><%= @blog.body %></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <%= @blog.created_at.strftime('%Y/%m/%d') %>
+              <i class="far fa-comment" id="comment_count"><%= render "public/blog_comments/comment_count", blog: @blog %></i>
+              <i class="far fa-heart" id="like_count"><%= render "public/likes/like_count", blog: @blog %></i>
+              <% if current_user %>
+                <div id="blog_<%= @blog.id %>">
+                  <%= render "public/likes/like", blog: @blog %>
+                </div>
+              <% end %>
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="card w-50 mx-auto mt-4 shadow-lg" id="comment">
+  <%= render "public/blog_comments/comment", blog: @blog %>
+</div>
+
+<% if current_user %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= form_with model: [@blog, @blog_comment] do |f| %>
+      <div class="card-body">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div><%= f.text_area :comment, class: "form-control", rows: "3" %></div>
+            <div class="text-center"><%= f.submit "コメント", class: "btn btn-success" %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
