@@ -1,0 +1,9 @@
+<% if current_user.already_liked?(blog) %>
+  <%= link_to blog_likes_path(blog), method: :delete, remote: true do %>
+  <i class="fas fa-heart"></i>
+  <% end %>
+<% else %>
+  <%= link_to blog_likes_path(blog), method: :post, remote: true do %>
+  <i class="fas fa-heart text-danger"></i>
+  <% end %>
+<% end %>

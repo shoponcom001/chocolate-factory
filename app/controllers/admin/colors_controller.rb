@@ -1,6 +1,5 @@
 class Admin::ColorsController < Admin::AdminsController
   
-
   def index
     @colors = Color.all
   end
@@ -27,7 +26,7 @@ class Admin::ColorsController < Admin::AdminsController
   def update
     color = Color.find(params[:id])
     if color.update(color_params)
-      flash[:notice] = "変更しました。"
+      flash[:notice] = "変更しました"
       redirect_to admin_colors_path
     else
       flash[:alert] = "必要項目を入力してください"
@@ -38,7 +37,7 @@ class Admin::ColorsController < Admin::AdminsController
   def destroy
     color = Color.find(params[:id])
     color.destroy
-    flash[:alert] = "削除しました。"
+    flash[:alert] = "削除しました"
     redirect_to admin_colors_path
   end
   
