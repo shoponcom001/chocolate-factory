@@ -1,0 +1,2 @@
+$("#blog_<%= @blog.id %>").html("<%= j( render 'public/likes/like', blog: @blog ) %>");
+$("#like_count").html("<%= j( render 'public/likes/like_count', blog: @blog ) %>");
