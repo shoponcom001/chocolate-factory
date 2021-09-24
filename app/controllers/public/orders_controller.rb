@@ -31,7 +31,7 @@ class Public::OrdersController < ApplicationController
     @item = Item.find(session[:item_id])
     @item.order_id = @order.id
     @item.save
-    ContactMailer.send_mail(current_user, @order).deliver
+    ContactMailer.bank_send_mail(current_user, @order).deliver
     render :complete
   end
 
