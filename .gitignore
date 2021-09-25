@@ -31,3 +31,4 @@
 /config/master.key
 
 /.envdb/seeds.rb
+db/seeds.rb
