@@ -1,0 +1,16 @@
+<% blog.blog_comments.each do |blog_comment| %>
+  <div class="card-body">
+    <div class="card mb-3">
+      <div class="card-body">
+        <p class="card-text"><%= blog_comment.user.name %></p>
+        <p class="card-text"><%= blog_comment.comment %></p>
+        <p class="card-text"><small class="text-muted">
+          <%= blog_comment.created_at.strftime("%Y/%m/%d") %>
+          <% if current_user == blog_comment.user %>
+            <%= link_to "  削除", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete, remote: true %>
+          <% end %>
+        </small></p>
+      </div>
+    </div>
+  </div>
+<% end %>
