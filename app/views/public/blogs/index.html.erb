@@ -10,7 +10,13 @@
             <div class="card mb-3">
               <div class="card-body">
                 <h5 class="card-title"><%= blog.title %></h5>
-                <p class="card-text"><small class="text-muted"><%= blog.created_at.strftime('%Y/%m/%d') %></small></p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <%= blog.created_at.strftime('%Y/%m/%d') %> 
+                    <i class="far fa-comment">:<%= blog.blog_comments.count %></i>
+                    <i class="far fa-heart">:<%= blog.likes.count %></i>
+                    </small>
+                  </p>
               </div>
             </div>
           </div>
