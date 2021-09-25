@@ -1,5 +1,6 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_user!
+  before_action :correct_order,only: [:show]
   def new
     @order = Order.new
   end
@@ -30,12 +31,12 @@ class Public::OrdersController < ApplicationController
     @item = Item.find(session[:item_id])
     @item.order_id = @order.id
     @item.save
-    ContactMailer.send_mail(current_user, @order).deliver
+    ContactMailer.bank_send_mail(current_user, @order).deliver
     render :complete
   end
 
   def index
-    @orders = Order.where(user_id: current_user.id).order(created_at: :desc)
+    @orders = Order.where(user_id: current_user.id).page(params[:page]).reverse_order
     @items = Item.where(order_id: params[:id])
   end
 
@@ -59,6 +60,13 @@ class Public::OrdersController < ApplicationController
     )
     ContactMailer.send_mail(current_user, @order).deliver
     render :complete
+  end
+
+  def correct_order
+    @order = Order.find(params[:id])
+    unless @order.user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
   private
