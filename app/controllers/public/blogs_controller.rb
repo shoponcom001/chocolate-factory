@@ -1,6 +1,6 @@
 class Public::BlogsController < ApplicationController
   def index
-    @blogs = Blog.all.order(created_at: :desc)
+    @blogs = Blog.all.page(params[:page]).reverse_order
   end
 
   def show
