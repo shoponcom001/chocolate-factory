@@ -19,16 +19,16 @@
           <%= link_to "About", about_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to 'デザイン', designs_path, class: 'nav-link text-dark' %>
+          <%= link_to 'Design', designs_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to '注文履歴', orders_path, class: 'nav-link text-dark' %>
+          <%= link_to 'MyOrder', orders_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ブログ", blogs_path, class: "nav-link text-dark" %>
+          <%= link_to 'Blog', blogs_path, class: "nav-link text-dark" %>
         </li>
         <li class="nev-item">
-          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
+          <%= link_to "LogOut", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
         </li>
         <% elsif admin_signed_in? %>
         <li class="nav-item">
@@ -63,16 +63,16 @@
           <%= link_to "About", about_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nev-item">
-          <%= link_to "デザイン", designs_path, class: 'nav-link text-dark' %>
+          <%= link_to "Design", designs_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ブログ", blogs_path, class: 'nav-link text-dark' %>
+          <%= link_to "Blog", blogs_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+          <%= link_to "SignUp", new_user_registration_path, class: 'nav-link text-dark' %>
         </li>
         <li class="nav-item">
-          <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+          <%= link_to "LogIn", new_user_session_path, class: 'nav-link text-dark' %>
         </li>
         <% end %>
         </ul>
