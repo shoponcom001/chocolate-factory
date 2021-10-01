@@ -1,8 +1,7 @@
-class Admin::BlogsController < Admin::AdminsController
-  before_action :authenticate_admin!
+class Admin::BlogsController < ApplicationController
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.page(params[:page]).reverse_order
   end
 
   def new

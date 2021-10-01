@@ -72,6 +72,8 @@ gem 'enum_help'
 gem 'active_hash'
 gem 'payjp'
 gem 'listen'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 
 gem 'dotenv-rails'
