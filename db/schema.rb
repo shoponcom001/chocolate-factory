@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_20_112854) do
+ActiveRecord::Schema.define(version: 2021_10_02_132108) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(version: 2021_09_20_112854) do
   create_table "ranks", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.integer "blog_id"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
