@@ -33,4 +33,16 @@ module ChocolateFactory
     }
   ]
 }
+
+{
+  "documentSentiment"=>{
+    "polarity"=>1, "magnitude"=>0, "score"=>0}, "language"=>"en",
+    "sentences"=>[
+    {
+      "text"=>{"content"=>"test", "beginOffset"=>-1},
+      "sentiment"=>{"polarity"=>1, "magnitude"=>0, "score"=>0}
+    }
+  ]
+}
+
 end
