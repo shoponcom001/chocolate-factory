@@ -5,6 +5,7 @@ class Public::BlogCommentsController < ApplicationController
     @blog_comment = BlogComment.new(blog_comment_params)
     @blog_comment.blog_id = @blog.id
     @blog_comment.user_id = current_user.id
+    @blog_comment.score = Language.get_data(blog_comment_params[:comment])
     @blog_comment.save
   end
 

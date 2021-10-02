@@ -9,6 +9,7 @@
           <% if current_user == blog_comment.user %>
             <%= link_to "  削除", blog_blog_comment_path(blog_comment.blog, blog_comment), method: :delete, remote: true %>
           <% end %>
+          <span>スコア<%= blog_comment.score %></span>
         </small></p>
       </div>
     </div>
