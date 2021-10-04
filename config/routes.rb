@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :public do
-    get 'blogs/index'
-    get 'blogs/show'
-  end
-  namespace :admin do
-    get 'blogs/index'
-    get 'blogs/new'
-    get 'blogs/show'
-    get 'blogs/edit'
-  end
 devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -26,7 +16,7 @@ devise_for :users, controllers: {
  get '/about', to: 'public/homes#about'
 
  get '/designs', to: 'public/designs#index'
-
+ 
  resources :items, module: :public, only: [:show, :create]
 
  resources :orders, module: :public, only: [:new, :create, :index, :show] do
@@ -49,6 +39,10 @@ resources :users, module: :public, only: [:edit, :update]
   get '/users/my_page', to: 'public/users#show'
   get 'users/:id/my_page', to: 'public/users#unsubscribe', as: 'user_unsubscribe'
   patch '/users/:id/withdraw', to: 'public/users#withdraw', as: 'users_withdraw'
+  
+get 'inquiry', to: 'public/inquiry#index'
+post 'inquiry/confirm', to: 'public/inquiry#confirm'
+post 'inquiry/thanks', to: 'public/inquiry#thanks'
 
 namespace :admin do
   root to: 'homes#top'
