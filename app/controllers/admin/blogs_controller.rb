@@ -9,8 +9,12 @@ class Admin::BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
-    if @blog.save
+    blog = Blog.new(blog_params)
+    if blog.save
+       tags = Vision.get_image_data(blog.image)
+       tags.each do |tag|
+         blog.tags.create(name: tag)
+       end
       flash[:notice] = "新規投稿しました"
       redirect_to admin_blogs_path
     else
@@ -30,6 +34,11 @@ class Admin::BlogsController < ApplicationController
   def update
     blog = Blog.find(params[:id])
     if blog.update(blog_params)
+       tags = Vision.get_image_data(blog.image)
+       blog.tags.destroy_all
+       tags.each do |tag|
+        blog.tags.create(name: tag)
+       end
       flash[:notice] = "変更しました"
       redirect_to admin_blog_path(blog)
     else
