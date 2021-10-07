@@ -4,8 +4,7 @@ class Public::InquiryController < ApplicationController
   end
 
   def confirm
-    @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))
-    #@inquiry = Inquiry.new(inquiry_params)
+    @inquiry = Inquiry.new(inquiry_params)
     if @inquiry.valid?
       render :confirm
     else
@@ -15,14 +14,15 @@ class Public::InquiryController < ApplicationController
   end
 
   def thanks
-     @inquiry = Inquiry.new(params[:inquiry].permit(:name, :email, :message))    
-    # @inquiry = Inquiry.new(inquiry_params)
+    @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.received_email(@inquiry).deliver
     render :thanks
   end
 
+  private
+
   def inquiry_params
-    params(:inquiry).permit(:name, :email, :massege)
+    params.require(:inquiry).permit(:name, :email, :message)
   end
 
 end
