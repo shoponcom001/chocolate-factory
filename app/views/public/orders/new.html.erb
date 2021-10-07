@@ -2,7 +2,7 @@
   <div class="row mt-5">
     <div class="col-md-8 offset-md-1">
       <h4>注文情報入力</h4>
-      <%= form_with model: @order, url: orders_confirm_path(@order), local:true do |f| %>
+      <%= form_with model: @order, url: orders_confirm_path(@order), local: true do |f| %>
         <div class="form-group">
           <h4>支払い方法</h4>
           <div>
@@ -15,14 +15,7 @@
           </div>
         </div>
         <div class="form-group">
-          <%= f.label "郵便番号" %>
-          <%= f.text_field :postal_code, class: "form-control" %>
-          <%= f.label "住所" %>
-          <%= f.text_field :address , class: "form-control"%>
-          <%= f.label "宛名" %>
-          <%= f.text_field :name , class: "form-control"%>
-          <%= f.label "電話番号" %>
-          <%= f.text_field :phone_number , class: "form-control"%>
+          <%= render "public/orders/form", f: f %>
         </div>
         <div class="col text-center">
           <%= f.submit "確認画面へ進む", class: "btn btn-info" %>
