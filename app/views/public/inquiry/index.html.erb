@@ -4,7 +4,7 @@
       <h4>お問い合わせ入力</h4>
       <%#= form_with model: @incluiry, url: inquiry_confirm_path, local: true do |f| %>
       <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
-      <table class="table">
+      <table class="table table-borderless">
         <tr>
           <th>名前</th>
           <td><%= f.text_field :name, class: "form-control" %></td>
