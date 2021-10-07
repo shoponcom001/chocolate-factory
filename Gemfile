@@ -74,7 +74,7 @@ gem 'payjp'
 gem 'listen'
 gem 'kaminari'
 gem 'bootstrap4-kaminari-views'
-
+gem 'jp_prefecture'
 
 gem 'dotenv-rails'
 group :production do
