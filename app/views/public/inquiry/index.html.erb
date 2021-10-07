@@ -2,8 +2,7 @@
   <div class="row mt-5">
     <div class="col-8 mx-auto">
       <h4>お問い合わせ入力</h4>
-      <%#= form_with model: @incluiry, url: inquiry_confirm_path, local: true do |f| %>
-      <%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+      <%= form_with model: @inquiry, url: inquiry_confirm_path, local: true do |f| %>
       <table class="table table-borderless">
         <tr>
           <th>名前</th>
