@@ -14,5 +14,5 @@ class Order < ApplicationRecord
     preparing_delivery: 3,
     delivered: 4
   }
-
+  
 end

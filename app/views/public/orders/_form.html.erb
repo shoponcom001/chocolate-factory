@@ -1,8 +1,27 @@
-<%= f.label "郵便番号" %>
-<%= f.text_field :postal_code, class: "form-control", id: "user_postal_code" %>
-<%= f.label "住所" %>
-<%= f.text_field :address , class: "form-control", id: "user_address"%>
-<%= f.label "宛名" %>
-<%= f.text_field :name , class: "form-control" %>
-<%= f.label "電話番号" %>
-<%= f.text_field :phone_number , class: "form-control" %>
+<div class="h-adr">
+  <span class="p-country-name" style="display:none;">Japan</span>
+  <div class="form-group">
+    <%= f.label "郵便番号(７桁)", class: "control-label" %> <small class="text-danger">必須</small>
+    <div class="col-sm-2">
+      <%= f.text_field :postal_code, class: "form-control p-postal-code", maxlength: "7"%>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <%= f.label "住所", class: "control-label" %> <small class="text-danger">必須</small>
+    <div class="col-sm-10">
+      <%= f.text_field :address , class: "form-control p-region p-locality p-street-address p-extended-address"%>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "宛名", class: "control-label" %> <small class="text-danger">必須</small>
+    <div class="col-sm-10">
+      <%= f.text_field :name , class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label "電話番号", class: "control-label" %> <small class="text-danger">必須</small>
+    <div class="col-sm-10">
+      <%= f.text_field :phone_number , class: "form-control" %>
+    </div>
+  </div>
+</div>
