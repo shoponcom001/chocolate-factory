@@ -5,15 +5,15 @@
       <%= form_with model: @inquiry, url: inquiry_confirm_path, local: true do |f| %>
       <table class="table table-borderless">
         <tr>
-          <th>名前</th>
+          <th>名前 <small class="text-danger">必須</small></th>
           <td><%= f.text_field :name, class: "form-control" %></td>
         </tr>
         <tr>
-          <th>メールアドレス</th>
+          <th>メールアドレス <small class="text-danger">必須</small></th>
           <td><%= f.text_field :email, class: "form-control" %></td>
         </tr>
         <tr>
-          <th>お問い合わせ内容</th>
+          <th>お問い合わせ内容 <small class="text-danger">必須</small></th>
           <td><%= f.text_area :message, class: "form-control", rows: "5" %></td>
         </tr>
         <tr>
