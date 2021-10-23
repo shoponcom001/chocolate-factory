@@ -42,9 +42,9 @@
               <th style="width: 20%">教材</th>
               <td>
                 <%= f.radio_button :material, :buy %>
-                <%= f.label :教材あり, class: "job_type_label" %><%= "+2000円" %>
+                <%= f.label :material_buy, "教材あり+2000円",class: "job_type_label"  %>
                 <%= f.radio_button :material, :not_buy %>
-                <%= f.label :教材なし, class: "job_type_label"%>
+                <%= f.label :material_not_buy, "教材なし",class: "job_type_label" %>
               </td>
             </tr>
             <tr>

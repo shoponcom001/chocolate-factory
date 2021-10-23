@@ -56,7 +56,8 @@ class Public::OrdersController < ApplicationController
     charge = Payjp::Charge.create(
       :amount => @order.price,
       :card => params['payjp-token'],
-      :currency => 'jpy'
+      :currency => 'jpy',
+      metadata: { user: "[user:#{current_user.id}:#{current_user.name}], [order:#{@order.id}]"}
     )
     ContactMailer.send_mail(current_user, @order).deliver
     render :complete
